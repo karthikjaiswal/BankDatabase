@@ -11,8 +11,17 @@ import com.bankingdb.daoimpl.RegistrationImpl;
 
 public class Application {
 	static Scanner sc=new Scanner(System.in);
+	static Application a=new Application();
+	  
+public static void main(String[] args) {
+		
+		
+		a.choice();
+		}
+
+
 	
-	 static Application a=new Application();
+	
 	
 	public void operations(long acc_num)
 	{
@@ -30,49 +39,38 @@ public class Application {
 			o.deposit(acc_num);
 			break;
 		case 3:
-			System.exit(0);
+			a.choice();
+						//System.exit(0);
 		}
 		
 		
 	}
 	
 
-	public static void main(String[] args) {
-		
-		
-		
-		int n=a.choice();
 	
-		if(n==1)
-		{
-		Registration r=new RegistrationImpl();
-		r.registration();
-		a.choice();
-		}
-		else if(n==2)
-		{
-			
-		Login l=new LoginImpl();
-		long acc_num=l.login();
-		a.operations(acc_num);
-		
-		}
-		else
-		{
-		
-		System.exit(0);
-	
-		}
-		}
-
-
-	public int choice() {
+	public void choice() {
 	
 		System.out.println("=========Welcome to Bank=======");
 		System.out.println("1. Registration \n2. Login \n3. Exit");
 		
 		int n=sc.nextInt();
-		return n;
+		
+		switch(n)
+		{
+		case 1:
+			Registration r=new RegistrationImpl();
+			r.registration();
+			a.choice();
+			break;
+		case 2:
+			Login l=new LoginImpl();
+			long acc_num=l.login();
+			a.operations(acc_num);
+			break;
+		case 3:
+			
+			System.exit(0);
+		}
 		
 	}
 

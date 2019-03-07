@@ -86,7 +86,7 @@ public class RegistrationImpl implements Registration{
 			registration();
 		}
 			
-		scanner.close();
+		
 	}
 	
 	public boolean validateUser(long aadharCardNo) {
